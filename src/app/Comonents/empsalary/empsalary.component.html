@@ -1,0 +1,82 @@
+<section class="Mo">
+  <div class="container p-5">
+    <h1 class="text-center">Salary</h1>
+   <!-- <div class="container">
+      <form class="d-flex offset-4 mt-5 col-4 ml-5 " role="search">
+          <input class="form-control  me-2" [(ngModel)]="name" type="text" placeholder="Search by Name" id="name" formControlName="name" name="name" aria-label="Search">
+          <input type="text" id="name" formControlName="name" name="name" class="form-control" [(ngModel)]="name" >
+          <button class="btn btn-outline-success" (click)="GetReport()">Search</button>
+     </form>
+     <div> -->
+      <div class="input-group  mt-4 inpt container ">
+        <button class="btn   btn-outline-secondary" type="button" id="button-addon1">Employee Name</button>
+        <input type="text" class="form-control  " [(ngModel)]="name" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+    </div>
+  <div class="row">
+    <div class="input-group  mt-4 inpt container col-6 ">
+      <button class="btn   btn-outline-secondary" type="button" id="button-addon1">From Date</button>
+      <input type="date" class="form-control  " [(ngModel)]="Fromdate" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+  </div>
+  <div class="input-group  mt-4 inpt container col-6">
+    <button class="btn   btn-outline-secondary" type="button" id="button-addon1">To Date</button>
+    <input type="date" class="form-control  " placeholder="" [(ngModel)]="Todate" aria-label="Example text with button addon" aria-describedby="button-addon1">
+  </div>
+  
+  </div>
+    <!-- </div>
+      <button type="submit" class="btn col-4 mt-2 btn-primary mb-3">Search</button>
+    </div> -->
+    <div class="container text-center mt-3">
+      <!-- <form class="d-flex offset-4 mt-5 col-4 ml-5 " role="search"> -->
+          <!-- <input class="form-control  me-2" [(ngModel)]="name" type="text" placeholder="Search by Name" id="name" formControlName="name" name="name" aria-label="Search"> -->
+          <!-- <input type="text" id="name" formControlName="name" name="name" class="form-control" [(ngModel)]="name" > -->
+          <button class="btn btn-outline-success" (click)="GetReport()">Search</button>
+     <!-- </form> -->
+     <div>
+  
+    <table class="table mt-5">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Employee Name</th>
+          <th scope="col">Department</th>
+          <th scope="col">Basic salary</th>
+          <th scope="col"> days of Attendance</th>
+          <th scope="col"> days of Absence</th>
+          <th scope="col">Bonus by hours</th>
+          <th scope="col">Deduction by hours</th>
+          <th scope="col">Total Bonus</th>
+          <th scope="col">Total Deduction</th>
+          <th scope="col">Net Salary</th>
+          <!-- <th scope="col">Transactions</th> -->
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        <tr>
+          <th scope="row">1</th>
+          <td>{{salaryReport.employeeName}}</td>
+          <td>{{salaryReport.departName}}</td>
+          <td>{{salaryReport.salary}}</td>
+          <td>{{salaryReport.attendanceDays}}</td>
+          <td>{{salaryReport.absentDays}}</td>
+          <td>{{salaryReport.bonusCount}}</td>
+          <td>{{salaryReport.discoundCount}}</td>
+          <td>{{salaryReport.totalBonus}}</td>
+          <td>{{salaryReport.totalDiscound}}</td>
+          <td>{{salaryReport.totalSalary}}</td>
+          <!-- <td>
+          <i class="  m-4 text-primary bi bi-pen"></i>
+          <i class="bi bi-printer-fill"></i>
+      </td> -->
+        </tr>
+        
+        
+        
+      </tbody>
+    </table>
+  </div>
+  </div>
+  </div>
+  
+  
+  

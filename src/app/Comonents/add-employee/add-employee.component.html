@@ -1,0 +1,229 @@
+<section>
+    <div class="container Mo">
+        <div class="row text-center justify-content-center d-flex m">
+            <div class="col-8 m-2"><h1 class="head">{{EmployeeId !=0 ? "Edit Employee":"Add Employee"}}</h1></div>
+            <form [formGroup]="AddEmp" (submit)="AddEmployee($event)" >
+                <div class="row">
+                    <div class="col-8 dd">
+                        <h2 class="mb-5 subhead">Basic Data</h2>
+
+                        
+                           <div class="d-flex">
+                            <div class="mb-3 me-2">
+                                <label for="name" class="form-label">Name</label>
+                                <input formControlName="name" type="text" class="form-control" name="name" id="Name" aria-describedby="emailHelp">
+                                <ng-container *ngIf="getName.touched ">
+                                  <div *ngIf="getName.hasError('required')" class="alert alert-danger mt-2" id="errorName">
+                                      Name is required
+                                  </div>
+                                  <div *ngIf="getName.hasError('minlength') " class="alert alert-danger mt-2" id="errorName">
+                                      Name must be more than 2 charctars Long
+                                  </div>
+                                  <div *ngIf="getName.hasError('maxlength') " class="alert alert-danger mt-2" id="errorName">
+                                      Name must be less than 50 charctars Long
+                                  </div>
+                              </ng-container>
+                              </div>
+      
+                              <div class="mb-3">
+                                  <label for="Address" class="form-label">Street</label>
+                                  <input formControlName="street" type="text" class="form-control" name="street" id="Address">
+                                  <ng-container *ngIf="getStreet.touched ">
+                                    <div *ngIf="getStreet.hasError('required')" class="alert alert-danger mt-2" id="errorName">
+                                      street is required
+                                    </div>
+                                </ng-container>
+                                </div>
+      
+                           </div>
+
+
+                           <div class="d-flex">
+                            <div class="mb-3 me-2">
+                              <label for="Address" class="form-label">City</label>
+                              <input formControlName="city" type="text" class="form-control" name="city" id="Address">
+                              <ng-container *ngIf="getCity.touched ">
+                                <div *ngIf="getCity.hasError('required')" class="alert alert-danger mt-2" id="errorName">
+                                    Address is required
+                                </div>
+                            </ng-container>
+                            </div>
+                              <div class="mb-3">
+                                <label for="Address" class="form-label">Country</label>
+                                <input formControlName="country" type="text" class="form-control" name="country" id="Address">
+                                <ng-container *ngIf="getCountry.touched ">
+                                  <div *ngIf="getCountry.hasError('required')" class="alert alert-danger mt-2" id="errorName">
+                                      Address is required
+                                  </div>
+                              </ng-container>
+                              </div>
+                              </div>
+    
+                              <div class="d-flex">
+                                <div class="mb-3 me-2">
+                                <label for="Phone" class="form-label">Phone</label>
+                                <input formControlName="phone"  type="text" class="form-control" id="Phone" aria-describedby="emailHelp">
+                                <ng-container *ngIf="getPhone.touched ">
+                                    <div *ngIf="getPhone.hasError('required')" class="alert alert-danger mt-2" id="errorName">
+                                        Phone is required
+                                    </div>
+                                    <div *ngIf="getPhone.hasError('pattern') " class="alert alert-danger mt-2" id="errorName">
+                                        Phone must be more than 11 numbers
+                                    </div>
+                                </ng-container>
+                              </div>
+    
+                              <div class="mb-3 col-6">
+                                <label for="Gender" class="form-label">Gender</label>
+                                <select formControlName="gender" class="form-select" aria-label="Default select example" name="Gender" id="Gender">
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                  </select>
+    
+                                  <ng-container *ngIf="getGender.touched ">
+                                    <div *ngIf="getGender.hasError('required')" class="alert alert-danger mt-2" id="errorName">
+                                        Gender is required
+                                    </div>
+                                </ng-container>
+                              </div>
+                              </div>
+    
+                              <div class="d-flex">
+                                <div class="mb-3 me-2">
+                                <label for="Nationality" class="form-label">Nationality</label>
+                                <input formControlName="nationality"  type="text" class="form-control" id="Nationality">
+                                <ng-container *ngIf="getNationality.touched ">
+                                    <div *ngIf="getNationality.hasError('required')" class="alert alert-danger mt-2" id="errorName">
+                                        Nationality is required
+                                    </div>
+                                </ng-container>
+                            </div>
+    
+                              <div class="mb-3 col-6">
+                                <label for="BirthDate" class="form-label">BirthDate</label>
+                                <input formControlName="birthDate"  type="date"  class="form-control" id="BirthDate">
+                                <ng-container *ngIf="getBirthDate.touched ">
+                                    <div *ngIf="getBirthDate.hasError('required')" class="alert alert-danger mt-2" id="errorName">
+                                        BirthDate is required
+                                    </div> 
+                                    <div *ngIf="getBirthDate.hasError('dateOutOfRange')" class="alert alert-danger mt-2" >
+                                        Date must be between 1/1/1960 and 1/1/2003
+                                      </div>
+                                </ng-container>
+                            
+                            
+                            </div>
+                            </div>
+    
+                              <div class="mb-3 col-6 text-center">
+                                <label for="National_ID" class="form-label">National ID</label>
+                                <input formControlName="ssn"  type="number" class="form-control" id="National_ID">
+                                <ng-container *ngIf="getNationalId.touched ">
+                                    <div *ngIf="getNationalId.hasError('required')" class="alert alert-danger mt-2" id="errorName">
+                                        NationalId is required
+                                    </div>
+                                    <div *ngIf="getNationalId.hasError('pattern')" class="alert alert-danger mt-2" id="errorName">
+                                        NationalId must be 14 numbers
+                                    </div>
+                                    
+                                </ng-container>
+                            
+                            </div>
+                    </div>
+                            
+                    <div class="col-4 ss">
+                        <h2 class="mb-5 subhead">Business Data</h2>
+                        <div class="mb-3">
+                            <label for="HireDate" class="form-label">HireDate</label>
+                            <input formControlName="hireDate"  type="date" min="2008-01-01" max="2023-12-01" class="form-control" id="HireDate">
+                            <ng-container *ngIf="getHireDate.touched">
+                                <div *ngIf="getHireDate.hasError('required')" class="alert alert-danger mt-2" id="errorName">
+                                    HireDate is required
+                                </div>
+                                <div *ngIf="getHireDate.hasError('validateDateRange')" class="alert alert-danger mt-2" id="errorName">
+                                    HireDate must be more than 01/01/2008
+                                </div>
+                                
+                            </ng-container>
+                        
+                        </div>
+    
+                        <div class="mb-3">
+                            <label for="Salary" class="form-label">Salary</label>
+                            <input formControlName="salary"  type="number" class="form-control" id="Salary">
+                            <ng-container *ngIf="getSalary.touched ">
+                                <div *ngIf="getSalary.hasError('required')" class="alert alert-danger mt-2" id="errorName">
+                                    Salary is required
+                                </div>
+                                <div *ngIf="getSalary.hasError('min')" class="alert alert-danger mt-2" id="errorName">
+                                    Salary must be more than 1000
+                                </div>
+                                
+                            </ng-container>
+                       
+                        </div>
+                        <div class="mb-3">
+                            <label for="Attend" class="form-label">Attend Time</label>
+                            <input formControlName="attendTime"  type="time" class="form-control" id="Attend">
+                            <ng-container *ngIf="getAttend.touched ">
+                                <div *ngIf="getAttend.hasError('required')" class="alert alert-danger mt-2" id="errorName">
+                                    Attend Time is required
+                                </div> 
+                            </ng-container>
+                        
+                        
+                        </div>  
+                         <div class="mb-3">
+                            <label for="Leave" class="form-label">Leave Time</label>
+                            <input formControlName="leaveTime"  type="time" class="form-control" id="Leave">
+                            <ng-container *ngIf="getLeave.touched ">
+                                <div *ngIf="getLeave.hasError('required')" class="alert alert-danger mt-2" id="errorName">
+                                    Leave Time is required
+                                </div> 
+                            </ng-container>
+                        
+                        </div>
+                        <!-- <div class="mb-3">
+                            <label for="Admin" class="form-label">Admin</label>
+                            <select formControlName="admin_id" class="form-select" aria-label="Default select example" name="admin_id" id="admin_id">
+                                <option value="1">Mohamed</option>
+                              </select>
+    
+                              <ng-container *ngIf="getAdmin.touched ">
+                                <div *ngIf="getAdmin.hasError('required')" class="alert alert-danger mt-2" id="errorName">
+                                    Admin is required
+                                </div>
+                            </ng-container>
+                          </div> -->
+                          <div class="mb-3">
+                            <label for="Department" class="form-label">Department Name</label>
+                            <select formControlName="dept_id" class="form-select" aria-label="Default select example" name="dept_id" id="dept_id">
+                                <option value="1">HR</option>
+                                <option value="2">Operation</option>
+                                <option value="3">Finanical</option>
+                              </select>
+    
+                              <ng-container *ngIf="getDepartment.touched ">
+                                <div *ngIf="getDepartment.hasError('required')" class="alert alert-danger mt-2" id="errorName">
+                                    Department is required
+                                </div>
+                            </ng-container>
+                          </div>
+    
+    
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-outline-success m-5">{{EmployeeId !=0 ? "Edit Employee":"Add Employee"}}</button>
+                        <!-- <button type="submit" class="btn btn-outline-warning m-5">Edit</button> -->
+    
+                        <!-- <button type="submit" class="btn btn-outline-danger m-5">Delete</button> -->
+                    </div>      
+    
+    
+                </div>
+                    
+            </form>
+            </div>
+    </div>
+    
+</section>

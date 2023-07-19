@@ -1,0 +1,86 @@
+<section class="Mo">
+  <h1 class="pt-4 text-center">Official Vacation</h1>
+
+<!--  -->
+<div class="container-fluid">
+  <form  [formGroup]="holidayForm"  method="post" class="row">
+    <div class="row">
+     
+ 
+         <div class="col-md-4 ">
+           <div class="control-section">
+               <div id="control_wrapper">
+                   <div id="container">
+                       <ejs-calendar (change)="onValueChange($event)"></ejs-calendar>
+                       <span id="selected">Selected Value: </span>
+                   </div>
+               </div>
+           </div>
+ 
+ 
+           </div>
+ 
+         <div class="col-md-6 mt-5">
+             <label for="name" class="form-label">Vacation Name:</label>
+            
+             <input type="text" id="name" formControlName="name" name="name" class="form-control" [(ngModel)]="name" >
+             <ng-container *ngIf="getName.touched ">
+              <div *ngIf="getName.hasError('required')" class="alert alert-danger mt-2" id="errorName">
+                  Name is required
+              </div>
+              <div *ngIf="getName.hasError('minlength') " class="alert alert-danger mt-2" id="errorName">
+                  Name must be more than 2 charctars Long
+              </div>
+              <div *ngIf="getName.hasError('maxlength') " class="alert alert-danger mt-2" id="errorName">
+                  Name must be less than 50 charctars Long
+              </div>
+          </ng-container>
+             
+           </div>
+    </div>
+
+    
+
+ </form>     
+
+ 
+</div>
+
+<div class="text-center">
+
+  <button type="submit" (click)="AddOffDays($event)" class="btn btn-outline-primary  pe-5 ps-5">{{OffDayId !=0 ? "Edit ":"Add "}}</button>
+
+</div>
+
+<div class="text-center d-flex justify-content-center mt-3">
+    <table class="table table-hover w-50  ">
+        <thead>
+          <tr>
+            <th scope="col" hidden> Id</th>
+            <th scope="col"> Vacation Name</th>
+            <th scope="col">Date</th>
+            <th scope="col">Action</th>
+
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let day of OffDays;">
+            <td hidden>{{day.Id}}</td>
+            <td>{{day.name}}</td>
+            <td>{{day.date}}</td>
+            
+            <td>
+                <i [routerLink]="['/holidays',day.id,'edit']" class="fs-3 text-info mx-1 bi bi-pencil-square"></i>
+                <i (click)="deleteProductHandler(day.id)" class="fs-3 text-danger mx-1 bi bi-trash3"></i>
+                <!-- <i [routerLink]="['/Employees',Employee.id]" class="fs-3 text-warning mx-1 bi bi-eye"></i> -->
+            </td>
+          </tr>
+         
+        </tbody>
+      </table>
+</div>
+
+
+
+</section>
