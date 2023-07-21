@@ -1,66 +1,97 @@
-<section class="Mo">
-  <h1 class="text-center pt-4">Attendance of Employees</h1>
+<section>
+  <!-- <div class="head-title">
 
+  </div> -->
+  <div class="container-fluid">
+    <div class="table-data">
+      <div class="order">
+        <div class="head">
+          <h3 class="text-primary">Attendance of Employees</h3>
+          <div class="head-title mb-3">
+                <div class="left">
+                
+                </div>
+                <a href="#" class="btn-download">
+                  <i class='bx bxs-cloud-download' ></i>
+                  <span class="text">Download PDF</span>
+                </a>
+              </div>
+  
+        </div>
+        <form (ngSubmit)="onSubmit()">
+          <div class="row">
+            <div class="col-8 offset-2">
+              <label for="empName" class="mb-1">Enter Employee Name or Department Name :</label>
 
-<div class="container-fluid">
-  <form (ngSubmit)="onSubmit()">
-  <div class="row justify-content-around d-flex mt-5">
-        <input type="search" class="form-control" [(ngModel)]="empName"   name="empName" id="empName" class="form-control w-25" placeholder="Enter Employee Name or Dept Name" >
-        <button type="submit"  class="form-control w-25  btn btn-outline-success">Add</button>
-      </div>
-    </form>
+              <input type="search" class="form-control" [(ngModel)]="empName" name="empName" id="empName"
+                class="form-control" placeholder="">
+            </div>
+            <div class="col-12 my-3 text-center">
+  
+            </div>
+            <div class="col-11  text-center">
+              <button type="submit" class="btn btn-outline-primary px-5">Add</button>
+            </div>
+            <div class="row">
+              <div class="col-5 my-5 offset-1">
+                <label for="to">From:</label>
+  
+                <input type="date" [(ngModel)]="FromDate" name="date" id="date" class="form-control">
+  
+              </div>
+              <div class="col-5 my-5">
+                <label for="to">To:</label>
+                <input type="date" [(ngModel)]="ToDate" name="date" id="to" class="form-control">
+  
+  
+              </div>
+            </div>
+  
+          </div>
+        </form>
+  
+        <div class="col-11  text-center">
+          <button type="submit"  (click)="ShowAttend()" class="btn btn-primary px-5 mb-5">Show</button>
+        </div>
+  
+          <table class="table">
+            <thead>
+              <tr>
+                <!-- <th class="text-center">No.</th> -->
+                <th class="text-center">Department</th>
+                <th class="text-center">Name</th>
+                <th class="text-center">Attendance</th>
+                <th class="text-center">Leave Time</th>
+                <th class="text-center">Date</th>
+                <th class="text-center">Action</th>
+  
+              </tr>
+            </thead>
+  
+            <tbody>
+              <tr *ngFor="let attend of Attendances;">
+                <!-- <td >{{attend.id}}</td> -->
+                <td>{{attend.deptName}}</td>
+                <td>{{attend.empName}}</td>
+                <td>{{attend.attendTime}}</td>
+                <td>{{attend.leaveTime}}</td>
+                <td>{{attend.date}}</td>
+  
+                <td>
+                  <i [routerLink]="['/attendance',attend.id,'edit']" class="fs-5 text-info mx-1 bi bi-pencil-square"></i>
+                  <i (click)="deleteProductHandler(attend.id)" class="fs-5 text-danger mx-1 bi bi-trash3"></i>
+  
+                </td>
+              </tr>
+  
+            </tbody>
+  
+          </table>
+  
+        </div>
+  
 
-    <div class="row justify-content-around d-flex mt-5">
-        <label for="from" class="form-control w-25" >From</label>
-        <input type="date" [(ngModel)]="FromDate" name="date" id="date" class="form-control w-25">
-      
     </div>
 
-
-    <div class="row justify-content-around d-flex mt-5">
-        <label for="To" class="form-control w-25" >To</label>
-        <input type="date" [(ngModel)]="ToDate" name="date" id="date" class="form-control w-25">
-
-    </div>
-
-    <div class="text-center mt-3">
-        <button type="submit" (click)="ShowAttend()" class="form-control btn btn-outline-primary w-auto p-2 pe-4 ps-4">Show</button>
-
-    </div>
-
-    <div class="d-flex justify-content-center mt-3">
-    <table class="table w-75 text-center">
-        <thead>
-          <tr>
-            <th scope="col">No.</th>
-            <th scope="col">Department</th>
-            <th scope="col">Employee Name</th>
-            <th scope="col">Attendance Time</th>
-            <th scope="col">Leave Time</th>
-            <th scope="col">Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          
-          <tr *ngFor="let attend of Attendances;">
-            <td >{{attend.id}}</td>
-            <td>{{attend.deptName}}</td>
-            <td>{{attend.empName}}</td>
-            <td>{{attend.attendTime}}</td>
-            <td>{{attend.leaveTime}}</td>
-            <td>{{attend.date}}</td>
-
-            
-            <td>
-                <i [routerLink]="['/attendance',attend.id,'edit']" class="fs-3 text-info mx-1 bi bi-pencil-square"></i>
-                <i (click)="deleteProductHandler(attend.id)" class="fs-3 text-danger mx-1 bi bi-trash3"></i>
-                <!-- <i [routerLink]="['/Employees',Employee.id]" class="fs-3 text-warning mx-1 bi bi-eye"></i> -->
-            </td>
-          </tr>
-          
-        </tbody>
-      </table>
-      </div>
-
-</div>
+  </div>
 </section>

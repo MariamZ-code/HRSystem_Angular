@@ -1,11 +1,3 @@
-.Mo{
-    background-color: beige;
-  
-  }
-  h1{color:#A76F6F;}
-
-  .inpt{width: 30%;
-text-align: center;
-align-items: center;
-display: flex;
-justify-content: center;}
+table , td , th , tr {
+    text-align: center;
+}

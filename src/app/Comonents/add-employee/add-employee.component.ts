@@ -188,16 +188,16 @@ get getHireDate(){
  AddEmployee(e:Event){
   e.preventDefault();
   if(this.EmployeeId==0){
-    if (this.AddEmp.status == 'VALID') {
-      this.employeeService.addEmployee(this.AddEmp.value).subscribe({
+    // if (this.AddEmp.status == 'VALID') {
+    //   this.employeeService.addEmployee(this.AddEmp.value).subscribe({
 
-      })
-    }
-      else {
-        console.log('Please enter valid data');
-      }
+    //   })
+    // }
+      // else {
+      //   console.log('Please enter valid data');
+      // }
     
-     //this.employeeService.addEmployee(this.AddEmp.value).subscribe({}) 
+     this.employeeService.addEmployee(this.AddEmp.value).subscribe({}) 
   }
 
   else{

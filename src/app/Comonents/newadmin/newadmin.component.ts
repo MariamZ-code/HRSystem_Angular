@@ -23,8 +23,8 @@ export class NewadminComponent implements OnInit {
 
   adminForm = new FormGroup({
 
-    fullName: new FormControl('', [Validators.required,Validators.pattern("^[a-zA-Z_ ]{10,30}$")]),
-    userName : new FormControl('', [Validators.required,Validators.minLength(8)]),
+    fullName: new FormControl('', [Validators.required,Validators.pattern("^[a-zA-Z_ ]{3,30}$")]),
+    userName : new FormControl('', [Validators.required,Validators.minLength(5)]),
     email: new FormControl('', [Validators.required, Validators.pattern("[a-zA-Z0-9]{3,20}@[a-zA-Z]{3,7}\.com")]),
     password: new FormControl('', [Validators.minLength(10),Validators.required]),
     role: new FormControl('', [Validators.required])

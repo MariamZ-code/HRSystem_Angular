@@ -1,26 +1,4 @@
-
-#control_wrapper {
-    margin: 0 auto;
-    max-width: 300px;
-}
-
-.control-section {
-    margin: 25px auto;
-}
-#selected {
-    height: 50px;
-    width: 248px;
-    display: block;
-    font-weight: inherit;
-    line-height: 50px;
-    color: rgba(0, 0, 0, 0.58);
-}
-
-
-.Mo{
-    background-color: beige;
+table , td , th , tr {
  
-  }
-  label{color: #7D7463;}
-  h1{color: #7A3E3E;}
-
+    text-align: center;
+}

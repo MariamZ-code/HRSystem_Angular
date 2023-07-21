@@ -1,46 +1,61 @@
-<div class="container-fuild bg-light">
-  <a class="fs-2 ms-3 text-success" [routerLink]="['/Employees/0/edit']" >
-    <i class="bi bi-plus-square-fill"></i> 
- </a>
- <span class="m-2">Adding Employee</span>
+<section class="">
 
-      <table class="table">
+<div class="container-fuild bg-light rounded-3">
+  
+  <div class="head-title p-3">
+    <div class="left">
+    </div>
+    <a [routerLink]="['/Employees/0/edit']" class="btn-download">
+      <i class="bi bi-person-plus-fill"></i>
+      <span class="text">Add Employee</span>
+    </a>
+  </div>
+  
+  
+  <div class="table-data">
+    <div class="order">
+      <div class="head">
+        <h3 class="text-primary">Recent Employees</h3>
+
+        <nav>
+
+          <form action="#">
+            <div class="form-input">
+              <input type="search" placeholder="Search...">
+              <button type="button" class="search-btn"><i class='bx bx-search'></i></button>
+            </div>
+          </form>
+
+        </nav>
+      </div>
+      <table class="table table-bordered">
         <thead>
           <tr>
-            <th scope="col" hidden>Id</th>
-            <th scope="col">SSN</th>
-            <th scope="col">Name</th>
-            <th scope="col">Gender</th>
-            <th scope="col">Phone</th>
-            <th scope="col">Salary</th>
-            <th scope="col">BirthDate</th>
-            <th scope="col">Street</th>
-            <th scope="col">City</th>
-            <th scope="col">Country</th>
-            <th scope="col">HireDate</th>
-            <th scope="col">Nationailty</th>
-            <th scope="col">Attend Time</th>
-            <th scope="col">Leave Time</th>
-            <th scope="col">Department Name</th>
-            <th scope="col">Actions</th>
+            <th hidden>Id</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Phone</th>
+            <th>Salary</th>
+            <th>BirthDate</th>
+            <th>Street</th>
+            <th>City</th>
+            <th>Country</th>
+            <th>HireDate</th>
+            <th>Nationailty</th>
+            <th>Attend</th>
+            <th>Leave</th>
+            <th>Department</th>
+            <th>SSn</th>
+
+            <th>Actions</th>
+
           </tr>
         </thead>
+
         <tbody>
-          <!-- <th scope="col">Gender</th>
-            <th scope="col">Phone</th>
-            <th scope="col">Salary</th>
-            <th scope="col">BirthDate</th>
-            <th scope="col">Street</th>
-            <th scope="col">City</th>
-            <th scope="col">Country</th>
-            <th scope="col">HireDate</th>
-            <th scope="col">Nationailty</th>
-            <th scope="col">Attend Time</th>
-            <th scope="col">Leave Time</th>
-            <th scope="col">Department Name</th> -->
+
           <tr *ngFor="let Employee of Employees;">
             <td hidden>{{Employee.Id}}</td>
-            <td>{{Employee.ssn}}</td>
             <td>{{Employee.name}}</td>
             <td>{{Employee.gender}}</td>
             <td>{{Employee.phone}}</td>
@@ -54,13 +69,20 @@
             <td>{{Employee.attendTime}}</td>
             <td>{{Employee.leaveTime}}</td>
             <td>{{Employee.deptName}}</td>
+            <td>{{Employee.ssn}}</td>
+
             <td>
-                <i [routerLink]="['/Employees',Employee.id,'edit']" class="fs-3 text-info mx-1 bi bi-pencil-square"></i>
-                <i (click)="deleteProductHandler(Employee.id)" class="fs-3 text-danger mx-1 bi bi-trash3"></i>
-                <!-- <i [routerLink]="['/Employees',Employee.id]" class="fs-3 text-warning mx-1 bi bi-eye"></i> -->
+              <i [routerLink]="['/Employees',Employee.id,'edit']" class="fs-5 text-info mx-1 bi bi-pencil-square"></i>
+              <i (click)="deleteProductHandler(Employee.id)" class="fs-5 text-danger mx-1 bi bi-trash3"></i>
+
             </td>
           </tr>
-          
+
         </tbody>
+
       </table>
     </div>
+
+  </div>
+</div>
+</section>

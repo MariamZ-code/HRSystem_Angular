@@ -1,14 +1,4 @@
-.Mo{
-    background-color: beige;
-    padding-top: 100px;
-   height: 83vh;
-}
-h1{color:#A76F6F;}
-.offd{
-    width: 65% !important;
-    display: flex;
-   
-}
-.week , label{color: #7D7463;}
-button{width: 90px;
+h4{
+    color: #3C91E6;
+    font-weight: 500;
 }

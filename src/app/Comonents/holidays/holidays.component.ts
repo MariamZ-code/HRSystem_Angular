@@ -16,7 +16,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 
 export class HolidaysComponent  {
-  name:string=" ";
+  name:string="";
   OffDayId:any;
   OffDay:any;
  date:Date=new Date(0,0,0);
